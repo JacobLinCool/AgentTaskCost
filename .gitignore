@@ -134,3 +134,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Python bytecode from the skill scripts
+__pycache__/
+*.py[cod]
