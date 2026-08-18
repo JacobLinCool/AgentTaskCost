@@ -78,6 +78,7 @@
 
 html {
 	-webkit-text-size-adjust: 100%;
+	scrollbar-color: var(--axis) transparent;
 }
 
 body {
@@ -106,6 +107,12 @@ button {
 
 a {
 	color: inherit;
+}
+
+/* Browser surfaces the page did not draw, but still owns. */
+::selection {
+	background: var(--accent-wash);
+	color: var(--ink);
 }
 
 :focus-visible {

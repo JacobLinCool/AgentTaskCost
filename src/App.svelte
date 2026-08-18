@@ -14,6 +14,7 @@
 	import NumberField from "./components/NumberField.svelte";
 	import DerivedField from "./components/DerivedField.svelte";
 	import ParamGroup from "./components/ParamGroup.svelte";
+	import Explainer from "./components/Explainer.svelte";
 	import ThemeToggle from "./components/ThemeToggle.svelte";
 
 	import {
@@ -77,6 +78,15 @@
 
 	function select(W: number) {
 		view.W = Math.min(view.to, Math.max(view.from, Math.round(W / 1000) * 1000));
+	}
+
+	function loadExample(next: typeof scenario, W: number) {
+		Object.assign(scenario, next);
+		select(W);
+		const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+		document
+			.getElementById("curve")
+			?.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "center" });
 	}
 
 	let copied = $state(false);
@@ -251,7 +261,7 @@
 			</section>
 		</aside>
 
-		<section class="card plot" aria-label="Cost curve">
+		<section class="card plot" id="curve" aria-label="Cost curve">
 			<div class="plot-head">
 				<div>
 					<h2>Cost of finishing one fixed task</h2>
@@ -415,6 +425,8 @@
 			/>
 		</ParamGroup>
 	</section>
+
+	<Explainer {selected} onpick={loadExample} />
 
 	<section class="card skill" aria-label="Calibrate from your own usage">
 		<div class="skill-copy">
