@@ -426,8 +426,6 @@
 		</ParamGroup>
 	</section>
 
-	<Explainer {selected} onpick={loadExample} />
-
 	<section class="card skill" aria-label="Calibrate from your own usage">
 		<div class="skill-copy">
 			<p class="eyebrow">Tune this to your own work</p>
@@ -460,6 +458,8 @@
 			</p>
 		</div>
 	</section>
+
+	<Explainer {selected} onpick={loadExample} />
 
 	<footer>
 		<p>

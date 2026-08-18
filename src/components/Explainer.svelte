@@ -445,6 +445,7 @@
 		flex-direction: column;
 		gap: 22px;
 		margin-top: clamp(28px, 5vw, 52px);
+		margin-bottom: clamp(10px, 2vw, 22px);
 		padding-top: clamp(24px, 4vw, 40px);
 		border-top: 1px solid var(--border);
 	}
